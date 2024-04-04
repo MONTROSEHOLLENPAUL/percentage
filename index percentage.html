@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip caculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: rgb(59, 59, 59);
+        color: white;
+      }
+      .container {
+        background: rgba(173, 170, 170, 0.459);
+        position: absolute;
+        display: grid;
+        /*place-items: center;*/
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /*justify-content: center;*/
+        /*align-items: center;*/
+        padding: 10px;
+        box-shadow: 4px 5px 80px 9px rgba(255, 255, 255, 0.815);
+      }
+      .container h1 {
+        text-align: center;
+        padding: 10px;
+      }
+      .container p,
+      input,
+      button,
+      h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      input {
+        height: 30px;
+        border: none;
+        padding: 10px;
+      }
+      button {
+        padding: 5px;
+        margin-top: 10px;
+        /*margin-bottom: 10px;*/
+        background: #86e186f0;
+        border: none;
+        color: white;
+        cursor: pointer;
+        height: 30px;
+      }
+      h3 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculator</h1>
+      <p>Enter the amount and percentage to calculate the total.</p>
+      Amount :
+      <input type="number" id="amount" placeholder="amount..." />
+      Percentage :
+      <input type="number" id="percentage" placeholder="percentage(%)..." />
+      <button type="submit">Calculate</button>
+      <h3></h3>
+    </div>
+    <script>
+      const amount = document.querySelector("#amount");
+      const percentage = document.querySelector("#percentage");
+      const btn = document.querySelector("button");
+      const calculator = function calc() {
+        const amountValue = amount.value;
+        const percentageValue = percentage.value;
+        const total = parseFloat((amountValue * 100) / percentageValue).toFixed(
+          2
+        );
+        const result = (document.querySelector(
+          "h3"
+        ).innerText = `Percentage of : ${percentageValue}%, for an amount of : ${total}`);
+      };
+      btn.addEventListener("click", calculator);
+    </script>
+  </body>
+</html>
